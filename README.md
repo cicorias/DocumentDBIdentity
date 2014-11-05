@@ -41,7 +41,7 @@ From THIS repo, copy each to their respective directory.  While it doesn't reall
 >     DocumentDBIdentity\src\DX.TED.DocumentDb.Identity\ng\App_Start\IdentityConfigDocDb.cs
 >     DocumentDBIdentity\src\DX.TED.DocumentDb.Identity\ng\Models\IdentityModelsDocDb.cs
 
-![New Files](./doc/images/newFiles.png)
+![New Files](./doc/images/newFiles1.png)
 
 3. Fixup the Namespace issues (again, Nuget package will do this in the future)..
    The Namespaces in the 2 source files can just be changed to the default namespace of the project, with the Models item having ".Models" as the suffix of it's namespace.
