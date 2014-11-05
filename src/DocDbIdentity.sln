@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caspian", "Caspian\Caspian.csproj", "{21E842E9-02C5-4A0B-9E75-4CD1F55F4854}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Caspian.Tests", "Caspian.Tests\Caspian.Tests.csproj", "{E5766F1C-9DCF-44B4-842C-21CE13E0081E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DX.TED.DocumentDb.Identity", "DX.TED.DocumentDb.Identity\DX.TED.DocumentDb.Identity.csproj", "{B1FA1535-54BC-4465-87A0-DFD0AD3FB406}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DX.TED.DocumentDb.Identity.Tests", "DX.TED.DocumentDb.Identity.Tests\DX.TED.DocumentDb.Identity.Tests.csproj", "{9F4C3802-431E-4CD5-A8AE-85A10EF8335C}"
