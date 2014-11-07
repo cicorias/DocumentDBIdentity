@@ -92,9 +92,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\IdentityResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>IdentityResources.Designer.cs</LastGenOutput>

@@ -183,9 +183,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Content Include="connectionStrings.private">
+    <None Include="connectionStrings.private">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IdentityModelsDocDb.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

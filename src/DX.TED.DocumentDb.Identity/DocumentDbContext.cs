@@ -10,7 +10,7 @@ using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.Documents;
 
-
+// TODO: make it do this: http://blog.stephencleary.com/2013/01/async-oop-2-constructors.html
 
 namespace DX.TED.DocumentDb.Identity
 {
@@ -60,7 +60,7 @@ namespace DX.TED.DocumentDb.Identity
             {
                 if (!_clientInitialized)
                 {
-                    _clientInitialized = Initialize();;
+                    _clientInitialized = Initialize(); ;
                     if (!_clientInitialized)
                         Debug.WriteLine("didn't wait for initialization");
                 }
@@ -77,24 +77,46 @@ namespace DX.TED.DocumentDb.Identity
             return _client;
         }
 
+        /// TODO: fixing async constructor issues
+
+        private object asyncData;
+        private async Task<DocumentDbContext> InitializeAsync()
+        {
+            asyncData = await RunAsync2();
+            return this;
+        }
+
+        public static Task<DocumentDbContext> CreateAsync()
+        {
+            var ret = new DocumentDbContext();
+            return ret.InitializeAsync();
+        }
+
+        Task<DocumentDbContext> RunAsync2()
+        {
+            return null;
+        }
+
+        //end - fixing async constructor issies
+
         /// Constructors
-        public DocumentDbContext()
+        private DocumentDbContext()
             : this("DefaultDocDbConnection")
         {
         }
 
-        public DocumentDbContext(string connectionElement)
+        private DocumentDbContext(string connectionElement)
             : this(connectionElement, false)
         {
         }
 
-        public DocumentDbContext(string connectionElement, bool lazyInitialize = false)
+        private DocumentDbContext(string connectionElement, bool lazyInitialize = false)
         {
             ValidateConfiguration(connectionElement);
             ParseConnectionString();
 
             if (!lazyInitialize)
-                Initialize();//.Start();//.RunSynchronously();//.Wait();
+                Initialize();
         }
 
         /// <summary>
@@ -103,7 +125,7 @@ namespace DX.TED.DocumentDb.Identity
         bool Initialize()
         {
             /// TODO:worry about policy and consistency level later..
-            RunInitAsync();//.Wait();
+            RunInitAsync();
             _clientInitialized = true;
 
             if (null != _docDatabase)
@@ -157,7 +179,8 @@ namespace DX.TED.DocumentDb.Identity
             });
 
 
-            //TODO:magic number
+            /// TODO:magic number
+            /// TODO: this has to go - need the initialization to be async fully
             bool rv = mainTask.Wait(5000);
 
             if (!rv)
