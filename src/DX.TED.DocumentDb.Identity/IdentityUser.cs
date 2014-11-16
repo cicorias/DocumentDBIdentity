@@ -102,7 +102,7 @@ namespace DX.TED.DocumentDb.Identity
         /// Claims stuff
         /// 
 
-        public ICollection<IdentityUserClaim<string>> Claims
+        public virtual ICollection<IdentityUserClaim<string>> Claims
         {
             get;
             set;
